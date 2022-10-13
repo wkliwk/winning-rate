@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
-const { getMyHistories } = require("../controllers/spaceController.js");
+const {
+  getMyHistories,
+  createMyHistories,
+} = require("../controllers/spaceController.js");
 
-router.get("/", getMyHistories);
+router.get("/histories", getMyHistories);
+router.post("/histories", createMyHistories);
 
 module.exports = router;
