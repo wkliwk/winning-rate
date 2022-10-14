@@ -3,10 +3,10 @@ const router = express.Router();
 
 const {
   getMyHistories,
-  createMyHistories,
+  fetchMyHistories,
 } = require("../controllers/spaceController.js");
 
 router.get("/histories", getMyHistories);
-router.post("/histories", createMyHistories);
+router.get("/histories/fetch", fetchMyHistories);
 
 module.exports = router;

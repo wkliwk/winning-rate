@@ -38,7 +38,7 @@ const historySchema = new Schema(
     },
     jumpMultiple: {
       type: String,
-      required: true,
+      required: false,
     },
     reward: {
       type: Number,
@@ -69,9 +69,10 @@ const historySchema = new Schema(
   { timestamps: true }
 );
 
-historySchema.index({ uid: 1 }, { unique: true });
+historySchema.index({ roundid: 1 }, { unique: true });
 historySchema.index({ bet: 1 });
 historySchema.index({ reward: 1 });
+historySchema.index({ resultTime: -1 });
 
 // NOTE: destructing `model` make mongoose stuck in query
 module.exports = mongoose.model("History", historySchema, "histories");
